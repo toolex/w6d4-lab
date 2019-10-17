@@ -4,10 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener("submit", handleFormSubmit);
 })
 
-
+const readingList = [];
 
 const handleFormSubmit = function (event) {
   event.preventDefault()
   const resultParagraph = document.querySelector("#reading-list");
-  resultParagraph.textContent = `Title: ${event.target.title.value} Author: ${event.target.author.value} Category: ${event.target.category.value}`
+  const newItem = `Title: ${event.target.title.value} Author: ${event.target.author.value} Category: ${event.target.category.value}`;
+  readingList.push(newItem);
+  resultParagraph.textContent = readingList;
+  form.reset();
 };
